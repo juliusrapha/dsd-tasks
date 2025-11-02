@@ -1,0 +1,2 @@
+Faça um programa Javascript que leia quanto dinheiro uma pessoa tem na carteira (em MT) 
+e mostre quantos dólares ela pode comprar. Considere US$1,00 = 63,40MT.
