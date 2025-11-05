@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="style.css">
+        <title>www.tarefa3.Devs.co.mz</title>
+    </head>
+    <body>
+        <label for="nome">Digite seu nome</label>
+        <input type="text" id="nome">
+        <label for="salario">Qual é o seu salário?</label>
+        <input type="number" id="salario">
+        <button onclick="exibirIformacao()">Submeter</button>
+        <p id="informacao"></p>
+        
+        <script>
+            function exibirIformacao(){
+                let nome=document.getElementById("nome").value;
+                let salario=document.getElementById("salario").value;
+                let informacao= " Sr(a) "+nome+" rendeu "+salario+"MZNs no mês de Novembro.";
+                document.getElementById("informacao").textContent=informacao;
+            }
+        </script>
+    </body>
+</html>
