@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>devs.tarefa/feita</title>
+    <style>
+    p{
+      border: 3px solid black;
+      color: light-blue;
+    }
+    
+    </style>
+  </head>
+  <body>
+    <h2>Aqui pode realizar soma entre dois números</h2> 
+    <br>
+    <label for="valor_1">Digite um valor</label>
+    <input type="number" id="valor_1">
+    <br>
+    <br>
+    <label for="valor_2">Digite outro valor</label>
+    <input type="number" id="valor_2">
+    <br>
+    <br>
+    <button onclick="exibirSoma()">Somar</button>
+    <p id="Somar"></p>
+    
+    <script>
+      function exibirSoma(){
+      let valor_1=document.getElementById("valor_1").value
+      let valor_2=document.getElementById("valor_2").value
+      let Soma =Number(valor_1)+Number(valor_2)
+      document.getElementById("Somar").textContent=`A soma entre ${valor_1} e ${valor_2} é ${Soma}`
+      }
+
+    </script>
+  </body>
+</html>
