@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Pintada</title>
+</head>
+<body>
+    <script>
+        let largura = parseFloat(prompt("Digita a largura da parede (em metros):"));
+        let altura = parseFloat(prompt("Digita a altura da parede (em metros):"));
+        let area = largura * altura;
+        let tinta = area / 2;
+        alert(`A área total da parede é de ${area.toFixed(2)} metros quadrados.\nPara pintar essa parede, você precisará de ${tinta.toFixed(2)} litros de tinta.`);
+    </script>
+    
+</body>
+</html>
