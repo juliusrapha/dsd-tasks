@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locadora</title>
+</head>
+<body>
+    <h2>Calcular preço do aluguel</h2>
+    <p id="pagamento"></p>
+
+    <script>
+        var km = window.prompt('Quantos Km o carro percorreu?')
+        var dias = window.prompt('Por quantos dias o carro foi alugado?')
+
+        var total = (dias * 90) + (km * 0.20)
+
+        document.getElementById('pagamento').innerHTML = 
+        'O total a pagar é R$ ' + total
+    </script>
+</body>
+</html>
