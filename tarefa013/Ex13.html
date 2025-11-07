@@ -1,0 +1,29 @@
+<!DOCTYPE htm>
+<html lang="pt-br">
+    <head>
+        <title>salario.funcionario</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <label for="salario" id="salario">Informe salario</label>
+        <br>
+        <input type="number" id="salario">
+        <button onclick="exibirAumento()">Enviar</button>
+         
+      <p id="Aumento"></p>
+
+      <script>
+      function exibirAumento(){
+         let salario=Number(document.getElementById("salario").value)
+          aumento=Number(price*(1.15))
+
+         document.getElementById("Aumento").textContent= 'O seu aumento salarial e '+aumento
+       }
+       
+       </script>
+    </body>
+</html>
+
+
+
+
