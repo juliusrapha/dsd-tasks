@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconto de 5%</title>
+</head>
+<body>
+    <h2>Calcular preço promocional</h2>
+    <p id="resultado"></p> 
+
+    <script>
+        var preco = Number(window.prompt('Insira o preço do produto:'))
+        var desconto = preco * 0.05
+        var precoFinal = preco - desconto
+
+   
+        document.getElementById('resultado').innerHTML = 
+        'O preço original é R$ ' + preco + 
+        ' e com 5% de desconto fica R$ ' + precoFinal
+    </script>   
+</body>
+</html>
