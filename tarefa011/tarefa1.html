@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: aqua;
+      }
+      div#dados {
+        background-color: rgb(248, 246, 246);
+        border-radius: 10px;
+        width: 500px;
+      }
+      div#res {
+        background-color: white;
+        margin-top: 20px;
+      }
+      fieldset {
+        border-radius: 10px;
+        /*width: 10px;*/
+      }
+      input {
+        width: 50px;
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>O VALOR DE DELTA</h1>
+      <section>
+        <div id="dados">
+          <fieldset>
+            <legend>Equações quadráticas</legend>
+            <form action="tarefa1.html" method="post">
+              <label for="valorA">Digite o valor de a:</label>
+              <input type="text" maxlength="3" id="numA" /> <br />
+              <label for="valorB">Digite o valor de b:</label>
+              <input type="text" maxlength="3" id="numB" /> <br />
+              <label for="valorC">Digite o valor de c:</label>
+              <input type="text" maxlength="3" id="numC" />
+              <input
+                type="button"
+                value="Insirir"
+                id="btn"
+                onclick="insirir()"
+              />
+            </form>
+            <div id="res">kkk</div>
+          </fieldset>
+        </div>
+      </section>
+    </header>
+    <script>
+      function insirir() {
+        var numeA = Number(document.querySelector("input#numA").value);
+        var numeB = Number(document.querySelector("input#numB").value);
+        var numeC = Number(document.querySelector("input#numC").value);
+        var res = document.querySelector("div#res");
+        if (
+          numA.value.length == 0 ||
+          numB.value.length == 0 ||
+          numC.value.length == 0
+        ) {
+          alert("Preencha os espaços em branco, por favor!");
+        } else {
+          var delta = numeB ** 2 - 4 * numeA * numeC;
+          res.innerHTML = `O valor de delta é ${delta}`;
+        }
+      }
+    </script>
+  </body>
+</html>
