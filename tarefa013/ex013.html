@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salario_Aumento</title>
+</head>
+<body>
+    <script>
+        let salario = parseFloat(prompt("Digite o salário do funcionário: "));
+        function calcularAumento(salario){
+            return ("O salário com aumento é : R$ " + (salario + (salario * 0.15) ).toFixed(2));
+        }
+
+        document.write(calcularAumento(salario));
+        </script>
+    
+</body>
+</html>
