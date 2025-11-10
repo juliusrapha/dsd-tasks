@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguer_De_Carros</title>
+</head>
+<body>
+    <script>
+        let dias = parseInt(prompt("Digite a quantidade de dias que o carro foi alugado: "));
+        let km = parseFloat(prompt("Digite a quantidade de Km percorridos: "));
+
+        function calcularAluguer(dias, km) {
+            let custoDias = dias * 90;
+            let custoKm = km * 0.20;
+            let custoTotal = custoDias + custoKm;
+            return ("O custo total do aluguer do carro é: R$ " + custoTotal.toFixed(2));
+        }
+
+        document.write(calcularAluguer(dias, km));
+    </script>
+</body>
+</html>
