@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distancia Metros</title>
+</head>
+<body>
+    <script>
+        let distanciaMetros = parseFloat(prompt("Digite a distância em metros:"));
+        let distanciaKM = distanciaMetros / 1000;
+        let distanciaHM = distanciaMetros / 100;
+        let distanciaDAM = distanciaMetros / 10;
+        let distanciaCM = distanciaMetros * 100;
+        let distanciaMM = distanciaMetros * 1000;
+        alert(`A distância de ${distanciaMetros} m corresponde a : \n${distanciaKM.toFixed(4)} km \n${distanciaHM.toFixed(4)} hm \n${distanciaDAM.toFixed(3)} dam \n${distanciaCM.toFixed(2)} cm \n${distanciaMM.toFixed(3)} mm`);
+    </script>
+    
+</body>
+
+</html>
