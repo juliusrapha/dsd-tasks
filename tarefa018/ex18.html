@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>TestaSEvota.com</title>
+        <style>
+            body{
+                background-color: rgb(212, 208, 208);
+            }
+            section#principal{
+                border: 0.5px groove rgb(212, 208, 208);
+                background-color: rgb(247, 239, 239);
+                border-radius: 10px;
+                width: 300px;
+                height: 100px;
+                margin: auto;
+                margin-top: 10%;
+                padding-top: 10%;
+                align-items: center; 
+                justify-content: center;  
+                display: flex;
+            }
+            div#dentro{
+                margin:auto;
+                margin-top: 10%;
+                margin-bottom: 50%;
+                margin-bottom: 40%;
+                padding-left: 4%;
+                padding-bottom: 0%;
+                text-align: center; 
+            }
+            div#fora{
+                border: 1px solid rgb(212, 208, 208);
+                margin: auto;
+                width: 300px;
+                 width: 300px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+        <section id="principal">
+            <div id="dentro">
+                <label for="Ano_de_Nascimento">Insira seu ano de nascimento </label>
+                <br><br>
+                <input type="number" id="AnoNascimento"  placeholder="Ex: 2010">
+                <br><br>
+                <button onclick="exibirResposta()" id="btn">Enviar</button>
+            </div>
+        </section>
+        <div id="fora">
+            <p style="text-align: center;" id="resp"></p>
+        </div>
+        
+        <script>
+            function exibirResposta(){
+
+                let nasceu = Number(document.getElementById("AnoNascimento").value)
+                let anoAtual = new Date().getFullYear()
+                let idade = anoAtual-nasceu
+                let msg = document.getElementById("resp")
+
+                if(nasceu>anoAtual){
+
+                    msg.textContent="Por favor, Insira dados validos"
+
+                }else if(idade<18  || idade>80){
+
+                    msg.textContent=`Tem ${idade} anos de idade. Não Vota.`
+                }else{
+
+                    msg.textContent=`Tem ${idade} anos de idade. Vota.`
+
+                }
+
+
+            }
+        </script>
+
+    </body>
+</html>
