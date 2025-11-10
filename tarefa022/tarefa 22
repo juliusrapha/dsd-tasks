@@ -1,0 +1,16 @@
+// Verifica situação do alistamento militar
+
+let anoNascimento = parseInt(prompt("Digite o ano de nascimento:"));
+let anoAtual = new Date().getFullYear();
+let idade = anoAtual - anoNascimento;
+let idadeAlistamento = 18;
+
+if (idade < idadeAlistamento) {
+    let anosFaltando = idadeAlistamento - idade;
+    alert("Você tem " + idade + " anos. Faltam " + anosFaltando + " ano(s) para o alistamento militar.");
+} else if (idade === idadeAlistamento) {
+    alert("Você tem " + idade + " anos. Está na idade certa para se alistar este ano!");
+} else {
+    let anosPassados = idade - idadeAlistamento;
+    alert("Você tem " + idade + " anos. Já se passaram " + anosPassados + " ano(s) desde que você deveria se alistar.");
+}
