@@ -1,0 +1,17 @@
+
+let velocidade = parseFloat(prompt("Digite a velocidade do carro (Km/h):"));
+let velocidadeMaxima = 80;
+let valorMultaPorKm = 5;
+
+if (velocidade > velocidadeMaxima) {
+    let excesso = velocidade - velocidadeMaxima;
+    let multa = excesso * valorMultaPorKm;
+    alert(
+        "Você foi multado!\n" +
+        "Velocidade registrada: " + velocidade + " Km/h\n" +
+        "Excesso: " + excesso + " Km/h\n" +
+        "Valor da multa: R$ " + multa.toFixed(2)
+    );
+} else {
+    alert("Velocidade dentro do limite. Boa viagem!");
+}
