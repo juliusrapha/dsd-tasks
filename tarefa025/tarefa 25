@@ -1,0 +1,15 @@
+// Calcula o preço da passagem com base na distância
+
+let distancia = parseFloat(prompt("Digite a distância da viagem em Km:"));
+let preco;
+
+if (distancia <= 200) {
+    preco = distancia * 0.50; // 0,50 MT por Km para até 200Km
+} else {
+    preco = distancia * 0.45; // 0,45 MT por Km para acima de 200Km
+}
+
+alert(
+  "Distância da viagem: " + distancia + " Km\n" +
+  "Preço da passagem: " + preco.toFixed(2) + " MT"
+);
