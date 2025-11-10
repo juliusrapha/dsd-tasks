@@ -1,0 +1,21 @@
+// Calcula a redução do tempo de vida de um fumante
+
+let cigarrosPorDia = parseInt(prompt("Quantos cigarros você fuma por dia?"));
+let anosFumando = parseInt(prompt("Há quantos anos você fuma?"));
+
+let minutosPerdidosPorCigarro = 10;
+
+// Calcula o total de cigarros fumados
+let totalCigarros = cigarrosPorDia * 365 * anosFumando;
+
+// Calcula os minutos perdidos
+let totalMinutosPerdidos = totalCigarros * minutosPerdidosPorCigarro;
+
+// Converte minutos perdidos em dias
+let totalDiasPerdidos = totalMinutosPerdidos / (60 * 24);
+
+alert(
+  "Você fumou aproximadamente " + totalCigarros + " cigarros.\n" +
+  "Total de minutos de vida perdidos: " + totalMinutosPerdidos + " minutos.\n" +
+  "Isso equivale a aproximadamente " + totalDiasPerdidos.toFixed(1) + " dias de vida perdidos."
+);
