@@ -1,0 +1,25 @@
+// Calcula desconto especial para homens e mulheres
+
+let nome = prompt("Digite o nome do cliente:");
+let sexo = prompt("Digite o sexo do cliente (M/F):").toUpperCase();
+let valorCompra = parseFloat(prompt("Digite o valor das compras (em MT):"));
+
+let desconto;
+
+if (sexo === "F") {
+    desconto = valorCompra * 0.13; // 13% para mulheres
+} else if (sexo === "M") {
+    desconto = valorCompra * 0.05; // 5% para homens
+} else {
+    desconto = 0; // Sem desconto se sexo não for reconhecido
+}
+
+let valorFinal = valorCompra - desconto;
+
+alert(
+  "Cliente: " + nome + "\n" +
+  "Sexo: " + sexo + "\n" +
+  "Valor original: " + valorCompra.toFixed(2) + " MT\n" +
+  "Desconto aplicado: " + desconto.toFixed(2) + " MT\n" +
+  "Valor a pagar: " + valorFinal.toFixed(2) + " MT"
+);
