@@ -1,0 +1,11 @@
+// Calcula a idade e verifica se a pessoa pode votar
+
+let anoNascimento = parseInt(prompt("Digite o ano de nascimento:"));
+let anoAtual = new Date().getFullYear(); // Obtém o ano atual
+let idade = anoAtual - anoNascimento;
+
+if (idade >= 18) {
+    alert("Você tem " + idade + " anos e pode votar.");
+} else {
+    alert("Você tem " + idade + " anos e NÃO pode votar.");
+}
