@@ -1,0 +1,6 @@
+
+let meticais = parseFloat(prompt("Quantos meticais você tem na carteira? (MT)"));
+let taxaDolar = 63.40;
+let dolares = meticais / taxaDolar;
+
+alert("Com " + meticais.toFixed(2) + " MT, você pode comprar " + dolares.toFixed(2) + " dólares (US$).");
