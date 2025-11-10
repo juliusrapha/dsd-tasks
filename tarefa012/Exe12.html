@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>deconto.calculo</title>
+  </head>
+    <body>
+      
+        <label for="price">Insira o preço do produto</label>
+        <br>
+        <input type="number" id="price">
+        <br>
+        <button onclick="exibirDesconto()">Enviar</button>
+      
+      <p id="Desconto"></p>
+    </body>
+    <script>
+      function exibirDesconto(){
+        let price=Number(document.getElementById("price").value)
+        let desconto=Number(price*(0.95))
+
+      document.getElementById("Desconto").textContent= 'O preço promociol de 5% de '+price+'MZN é '+desconto+'MZN'
+
+      }
+    </script>
+
+</html>
