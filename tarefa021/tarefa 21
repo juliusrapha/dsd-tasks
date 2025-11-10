@@ -1,0 +1,9 @@
+// Verifica se um ano é bissexto
+
+let ano = parseInt(prompt("Digite um ano:"));
+
+if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+    alert("O ano " + ano + " é BISSEXTO.");
+} else {
+    alert("O ano " + ano + " NÃO é bissexto.");
+}
