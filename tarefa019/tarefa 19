@@ -1,0 +1,19 @@
+// Lê nome e notas, calcula média e avalia aproveitamento
+
+let nome = prompt("Digite o nome do aluno:");
+let nota1 = parseFloat(prompt("Digite a primeira nota:"));
+let nota2 = parseFloat(prompt("Digite a segunda nota:"));
+
+let media = (nota1 + nota2) / 2;
+
+let resultado = "Aluno: " + nome + "\n" +
+                "Notas: " + nota1 + " e " + nota2 + "\n" +
+                "Média: " + media.toFixed(2) + "\n";
+
+if (media >= 7.0) {
+    resultado += "Parabéns! Você teve um bom aproveitamento.";
+} else {
+    resultado += "Você não teve um bom aproveitamento. Precisa melhorar.";
+}
+
+alert(resultado);
