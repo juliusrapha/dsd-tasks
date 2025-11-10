@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida_de_Fumante</title>
+</head>
+<body>
+    <script>
+        let cigarros = parseInt(prompt("Digite a quantidade de cigarros fumados por dia: "));
+        let anos = parseInt(prompt("Digite a quantidade de anos que ele ja fumou: "));
+
+        function reducao_de_tVida(cigarros, anos){
+            let dias_de_fumo = 365*anos;
+            let total_de_cigarrosfumados = dias_de_fumo*cigarros
+            let total_de_minutos_predidos = total_de_cigarrosfumados*10
+            let total_de_dias_perdidos = Math.floor(total_de_minutos_predidos/1440);
+            return ("A quantidade de dias de vida perdidos é: " + total_de_dias_perdidos + "!");
+          
+        }
+
+        document.write(reducao_de_tVida(cigarros, anos));
+
+    </script>
+
+    
+</body>
+</html>
