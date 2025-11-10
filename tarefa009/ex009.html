@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metical_Dolar</title>
+</head>
+<body>
+    <script>
+        let valorM = parseFloat(prompt("Digita o valor que esta na sua carteira : "));
+         function valor_Dolar( valorM){
+            if (valorM <63.40){
+                return ("Valor insuficiente para compra de Dólar!");
+            } 
+            
+            if (valorM == 63.40){
+                    return 'Voce pode compra 1 Dólar com esse valor!';
+                }
+            
+            else {
+                return 'Voce pode compra ' + (valorM / 63.40).toFixed(2) + ' Dólares com esse valor!';
+            }
+        }
+
+        document.write(valor_Dolar (valorM));
+    </script>
+    
+</body>
+
+</html>
