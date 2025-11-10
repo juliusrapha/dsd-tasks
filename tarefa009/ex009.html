@@ -8,11 +8,23 @@
 <body>
     <script>
         let valorM = parseFloat(prompt("Digita o valor que esta na sua carteira : "));
+         function valor_Dolar( valorM){
+            if (valorM <63.40){
+                return ("Valor insuficiente para compra de Dólar!");
+            } 
+            
+            if (valorM == 63.40){
+                    return 'Voce pode compra 1 Dólar com esse valor!';
+                }
+            
+            else {
+                return 'Voce pode compra ' + (valorM / 63.40).toFixed(2) + ' Dólares com esse valor!';
+            }
+        }
 
-        let valor_Dolar = valorM / 63.40;
-
-        alert(`Você pode comprar ${valor_Dolar.toFixed(2)} dólares, com R$ ${valorM.toFixed(2)} meticais.`);
+        document.write(valor_Dolar (valorM));
     </script>
     
 </body>
+
 </html>
