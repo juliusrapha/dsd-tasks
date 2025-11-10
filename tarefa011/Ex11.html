@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>www.derterminaseudeltaqui.co.devs</title>
+    <style>
+      button#btn{
+        margin-top:30px;
+        margin-left:120px;
+      }
+      h6{
+        text-align:center;
+      }
+    </style>
+  
+</head>
+<body>
+  <h6>Determine o Valor de Delta(∆) Aqui!)</h6>
+  <label for="valor_de_A">Informe o valor de A</label>
+  <input type="number" id="valor_de_A">
+  <br>
+  <br>
+  <label for="valor_de_B">Informe o valor de B</label>
+  <input type="number" id="valor_de_B">
+  <br>
+  <br>
+  <label for="valor_de_C">Informe o valor de C</label>
+  <input type="number" id="valor_de_C">
+  <!--Botao para exibir o valor de delta-->
+  <button onclick="exibirDelta()" id="btn">Efectuar</button>
+  
+  <p id="Delta"></p>
+  
+<script>
+  function exibirDelta(){
+    let a=document.getElementById("valor_de_A").value
+    let b=document.getElementById("valor_de_B").value
+    let c=document.getElementById("valor_de_C").value
+    
+    let Delta=Number(b**2)-4*Number(a*c)
+  document.getElementById("Delta").textContent= `∆=${Delta}`
+  }
+</script>
+</body>
+</htm>
