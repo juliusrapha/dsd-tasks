@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>dev.tarefa15.feita</title>
+        <style>
+            div#entrada{
+                border: 2px solid rgb(76, 68, 104);
+                border-width: 1px;
+                border-top: 0.3cm;
+                border-bottom: 0.5cm;
+                border-left: 4cm;
+                border-right: 4cm;
+                border-top-style: groove;
+                border-left-style: thin;
+                border-bottom-style: groove;
+                border-right-style: thin;
+                padding-left: 30%;
+                padding-right: 18%;
+                padding-top: 10%;
+                padding-bottom: 10%;
+                background-color: rgb(206, 206, 243)
+           }
+           div#salario{
+              border-width: 0.5cm;
+              border-top: 1cqi;
+              text-align: justify;
+              font-family:"ffont9";
+              border:thin;
+              color: rgb(7, 1, 1);
+              background-color: rgb(206, 206, 243);
+              text-align: center;
+            
+             }
+                
+            p#Aviso{
+               border:thin; 
+               text-align: justify;
+               text-align: center;
+               color:red;
+               background-color: rgb(206, 206, 243);
+               border-width: 0.5cm;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="entrada">
+
+        <label for="days" id="mexer">Quantos dias trabalhou:</label>
+        
+        <input type="number" id="days">
+        <input type="button" id="enviar" value="Enviar" onclick="exibirSalario()">
+        </div>
+        <div id="salario"></div>
+        <P id="Aviso"></p>
+
+        <script>
+            function exibirSalario(){
+
+                var days=Number.parseInt(document.getElementById('days').value)
+                var res=document.querySelector('div#salario')
+                var aviso=document.querySelector('p#Aviso')
+
+                var salario=days*300
+                    
+                if(days<0){
+                    res.innerHTML='<p>Inseriu numero de dias <strong>INVALIDOS</strong></p>'
+                }
+                else if(days>30){
+                     res.innerHTML='<p>Inseriu numero de dias <strong>SUPERIOR</strong> à 30.</p>'
+                     aviso.innerHTML='<strong>AVISO:</strong> Um mês tem 30 dias apenas'
+                }else{
+                    res.innerHTML=`<p>O funcionario/a rendeu ${salario} mzn neste mês.</p>`
+
+                }
+
+                
+            }
+        </script>
+    </body>
+</html>
