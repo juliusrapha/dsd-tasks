@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocidade</title>
+</head>
+<body>
+    <script>
+        let distancia = parseFloat(prompt("Digite a velocidade do carro: "));
+       
+        function calcularVelocidade(distancia) {
+            if (distancia > 80){
+                let multa = (distancia*5)
+                return ("O usuario foi multado por excesso de velocidade. O valor da multa é: R$ " + multa.toFixed(2));
+             }else{
+                return ("O usuario não foi multado. Boa viagem!");
+             }
+        }
+        document.write(calcularVelocidade(distancia));
+
+    </script>
+    
+</body>
+</html>
