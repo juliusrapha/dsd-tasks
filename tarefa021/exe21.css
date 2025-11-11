@@ -1,0 +1,58 @@
+body {
+    background-color: rgb(175, 219, 240);
+}
+
+section#entrada {
+
+    border: 4px inset gray;
+    border-radius: 20%;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    background-color: rgb(235, 245, 247);
+    height: 300px;
+    align-items: center;
+    margin: auto;
+    margin-top: 10%;
+
+
+}
+
+h1 {
+    text-align: center;
+}
+
+div#dentro {
+    border: 2px outset gray;
+    background-color: rgb(115, 175, 194);
+    text-size-adjust: 6pt;
+    position: relative;
+    left: 31%;
+    align-items: center;
+    width: 500px;
+    height: 100px;
+
+}
+
+label {
+    position: relative;
+    top: 40%;
+    left: 5%;
+}
+
+input {
+    position: relative;
+    left: 5%;
+    top: 40%;
+}
+
+button#btn {
+    position: relative;
+    left: 5%;
+    top: 40%;
+}
+
+p#resp {
+    text-align: center;
+    position: relative;
+    top: 10%;
+}
