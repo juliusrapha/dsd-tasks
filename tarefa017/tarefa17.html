@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloc. de um carro</title>
+</head>
+<body>
+    <h1>Controle de velocidade</h1>
+    <label for="velocCarro">Qual é a velocidade do carro?</label>
+    <input type="number" id="velocCarro" placeholder="Veloc:km">
+    <button onclick="Enviar()">Enviar</button><br><br>
+    <h3>Situação do condutor</h3>
+    <p id="resultado"></p>
+
+    <script>
+        function Enviar() {
+       const veloc= document.getElementById('velocCarro')
+       if(veloc<0) {
+        document.getElementById("resultado"). innerHTML= "velocidade nao pode ser negativa, tenta novamente."
+        return
+       }
+       else if(veloc>80){
+        document.getElementById("resultado"). innerHTML=`
+        A velocidade a que o condutor se encontra é: ${veloc} km. 
+        ultrapassou o limite então a multa do condutor é: R$${veloc*5} `
+        return
+       } 
+       document.getElementById("resultado"). innerHTML='A velocidade esta dentro dos limites.'
+    }
+    </script>
+</body>
+</html>
