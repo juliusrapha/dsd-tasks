@@ -1,0 +1,49 @@
+body{
+    background: rgb(77, 77, 151);
+}
+header{
+color: white;
+text-align: center;
+}
+section{
+
+background: white;
+border-radius:100px;
+width: 500px;
+margin: auto;
+padding: 30px;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.233);
+}
+div#res{
+position: relative;
+}
+div#posica{
+    position: relative;
+    
+}
+fieldset{
+    border-radius: 100px;
+}
+legend{
+    color: blue
+}
+form{
+   
+    margin:10px;
+    padding: 10px;
+}
+input.em{
+    width: 25px; 
+    display: block;
+}
+input#btn{
+    position: relative;
+    left: 250px;
+    top: -40px;
+}
+footer{
+color: white;
+text-align: center;
+font-style: italic;
+padding: 5px;
+}
