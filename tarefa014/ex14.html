@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Locadora de Carros</title>
+</head>
+<body>
+    <label for="distancia">Informe a distância percorrida (Km):</label>
+    <br>
+    <input type="number" id="distancia">
+    <br><br>
+
+    <label for="dias">Informe os dias alugados:</label>
+    <br>
+    <input type="number" id="dias">
+    <br><br>
+
+    <button onclick="exibirPrice()">Calcular</button>
+
+    <p id="price"></p>
+
+    <script>
+        function exibirPrice() {
+            
+            let distancia = Number(document.getElementById("distancia").value);
+            let dias = parseInt(document.getElementById("dias").value);
+
+            
+            let price = (dias * 90) + (distancia * 0.20);
+
+            
+            document.getElementById("price").textContent = 
+                'Valor total: ' + price.toFixed(2);
+
+            //toFixed(n) mostra n casas decimais, aprendi no google kkkk  
+
+        }
+    </script>
+</body>
+</html>
