@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locadora</title>
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Tarefa4</title>
 </head>
+<label for="quantkm">Qual a quantidade de km percorridos por um carro alugado?</label>
+<input type="text" id="percorr">
+<label for="quantdias" id="dialug">Qual a quantidade de dias pelos quais foi alugado?</label>
+<input type="text" id="dias">
+<input type="button" value="insira" onclick="insira()">
+<div id="res"></div>
 <body>
-    <h2>Calcular preço do aluguel</h2>
-    <p id="pagamento"></p>
-
     <script>
-        var km = window.prompt('Quantos Km o carro percorreu?')
-        var dias = window.prompt('Por quantos dias o carro foi alugado?')
-
-        var total = (dias * 90) + (km * 0.20)
-
-        document.getElementById('pagamento').innerHTML = 
-        'O total a pagar é R$ ' + total
+        function insira(){
+            var quantkm = Number(document.querySelector('input#percorr').value)
+            var quantdias = Number(document.querySelector('input#dias').value)
+            var n1 = quantdias*90
+            var n2 = quantkm*0.20
+            var soma = n1+n2
+            var res = document.querySelector('div#res')
+            res.innerHTML = `O preço total a pagar é de ${soma} reais`
+        }
     </script>
 </body>
 </html>
