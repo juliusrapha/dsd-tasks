@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarefa3</title>
+  </head>
+  <body>
+    <div>
+      <p>Nome do funcionário: <input type="text" id="txtnome" /></p>
+      <p>Salário: <input type="number" id="txtsal" min="0" /></p>
+      <p><input type="button" value="Confirma" onclick="confirmar()" /></p>
+    </div>
+    <div id="res">kjhgz</div>
+    <script>
+      function confirmar() {
+        let data = new Date();
+        const mes = new Intl.DateTimeFormat('pt-BR',{month: 'long'});
+        let nomeMes = mes.format(data)
+        let nome = document.getElementById('txtnome');
+        let salario = document.getElementById('txtsal');
+        let res = document.getElementById('res');
+      res.innerHTML = `O funcionário ${nome.value} tem um salário de ${salario.value}MTS em ${nomeMes}`;}
+      
+    </script>
+  </body>
+</html>
