@@ -1,0 +1,12 @@
+
+let diasTrabalhados = parseInt(prompt("Quantos dias o funcionário trabalhou neste mês?"));
+
+let horasPorDia = 8;
+let valorPorHora = 37.5;
+
+let salario = diasTrabalhados * horasPorDia * valorPorHora;
+
+alert(
+  "O funcionário trabalhou " + diasTrabalhados + " dias.\n" +
+  "O salário total é: " + salario.toFixed(2) + " MT"
+);
