@@ -1,0 +1,20 @@
+// Lê uma distância em metros e mostra as conversões
+
+let metros = parseFloat(prompt("Digite uma distância em metros:"));
+
+let km = metros / 1000;
+let hm = metros / 100;
+let dam = metros / 10;
+let dm = metros * 10;
+let cm = metros * 100;
+let mm = metros * 1000;
+
+let mensagem = "A distância de " + metros + "m corresponde a:\n" +
+km + " Km\n" +
+hm + " Hm\n" +
+dam + " Dam\n" +
+dm + " dm\n" +
+cm + " cm\n" +
+mm + " mm";
+
+alert(mensagem);
