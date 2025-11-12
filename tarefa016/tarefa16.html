@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa16</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="posica">
+      <header>
+        <h1>CALCULADORA DE DIAS PERDIDOS POR FUMAR</h1>
+      </header>
+      <section>
+        <div>
+          <fieldset>
+            <legend>INQUÉRITO AO FUMADOR</legend>
+            <form action="formlario">
+              <label for="quantCig"
+                >Quantos cigarros fuma por dia?:
+                <input type="text" maxlength="3" class="em" id="cigar"
+              /></label>
+              <br />
+              <label for="quantAns"
+                >Há quantos anos tem fumado?:
+                <input type="text" maxlength="3" class="em" id="anos"
+              /></label>
+              <br />
+              <input type="button" value="Confirma os dados" id="btn" onclick="confirmar()" />
+              <fieldset>
+                  <legend>O total de dias perdidos</legend>
+                  <div id="res">Os resultados estarão aqui após preencher os espaços e confirmar...</div>
+              </fieldset>
+            </form>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+    <footer>copy&copy; DUALStack DEVS</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
