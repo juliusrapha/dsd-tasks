@@ -1,0 +1,10 @@
+
+let salario = parseFloat(prompt("Digite o salário do funcionário (em MT):"));
+let aumento = salario * 0.15;
+let novoSalario = salario + aumento;
+
+alert(
+  "Salário atual: " + salario.toFixed(2) + " MT\n" +
+  "Aumento de 15%: " + aumento.toFixed(2) + " MT\n" +
+  "Novo salário: " + novoSalario.toFixed(2) + " MT"
+);
