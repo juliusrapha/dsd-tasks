@@ -1,0 +1,28 @@
+*{ border-radius: 10px;
+}
+header{
+    box-shadow: 5px 5px 20px black;
+text-align: center;
+color: rgb(155, 12, 71);
+}
+
+body{
+    background-image: url(/home/edmilson/Programacao/Tarefas/tarefa25/imagen/pexels-mitchel3uo-3824708.jpg);}
+   
+div#corpo{
+    position: relative;
+    width: 600px;
+    margin: auto;
+    background: rgba(218, 165, 32, 0.616);
+    border: solid black;
+    box-shadow: 5px 5px 20px black;
+top: 230px;
+}
+label,input,fieldset,legend{
+    box-shadow: 5px 5px 20px black;
+
+}
+input.segm{width: 50px;}
+div#res{
+    color: blue;
+}
