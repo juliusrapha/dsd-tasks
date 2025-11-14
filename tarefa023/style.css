@@ -1,0 +1,36 @@
+*{
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(247, 245, 245);
+}
+
+/*body{
+   background: rgba(137, 43, 226, 0.692);
+   }*/
+section{
+    position: relative;
+    width: 600px;
+    margin: auto;
+}
+div#res{
+    text-align: center;
+    padding: 10px;
+}
+header{
+    text-shadow: 10px 10px 20px black;
+    text-align: center;
+    color: white;
+}
+div#corpo{
+    position: relative;
+     background: blueviolet;
+     width: 700px;
+     margin: auto;
+     top: 180px;
+
+}
+div#fiel{
+    background: rgba(2, 2, 253, 0.233);
+}
+input#valor{
+    width: 100px;
+}
