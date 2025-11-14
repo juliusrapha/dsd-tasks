@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa25</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="corpo">
+      <header><h1>Construção de Triângulo</h1></header>
+
+      <div>
+        <fieldset>
+          <legend>CUMPRIMENTO DOS SEGMENTOS DE RECTA</legend>
+          <form action="trianguo">
+            <label for="seg1">Segmento1:</label><input class="segm" type="text" id="seg1" placeholder="Em cm"/>
+            <br />
+            <label for="seg2">Segmento2:</label><input class="segm" type="text" id="seg2" placeholder="Em cm"/>
+            <br />
+            <label for="seg3">Segmento3:</label><input class="segm" type="text" id="seg3" placeholder="Em cm"/>
+            <br />
+            <input type="button" value="Confirmar" onclick="confirma()" />
+          </form>
+          <fieldset>
+            <legend>ANÁLISE DOS CUMPRIMENTOS</legend>
+            <div id="res"></div>
+          </fieldset>
+        </fieldset>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
