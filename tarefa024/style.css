@@ -1,0 +1,50 @@
+
+    body{
+        background-image: url(/home/edmilson/Programacao/Tarefas/tarefa24/imagem/pexels-pixabay-270404.jpg);
+        
+    }
+header{
+    text-align: center;
+    text-shadow: 5px 5px 20px white;
+    width: 500px;
+    position: relative;
+margin: auto;
+border-radius: 20px;
+    box-shadow: 5px 5px 10px blueviolet;
+
+}
+section{
+position: relative;
+width: 500px;
+margin: auto;
+border-radius: 20px;
+    box-shadow: 5px 5px 10px blueviolet;
+}
+
+img{
+    position: relative;
+    left: 200px;
+    border-radius: 100%;
+    box-shadow: 5px 5px 10px blueviolet;
+}
+/*label{
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px blueviolet;
+   
+}*/
+input,label{
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px blueviolet;
+ padding: 5px;
+}
+div#corpo{
+    position: relative;
+    border: solid blueviolet;
+    width: 550px;
+    margin: auto;
+    padding-bottom: 30px;
+     border-radius: 20px;
+    box-shadow: 5px 5px 10px blueviolet;
+top: 150px;
+background: white;
+}
