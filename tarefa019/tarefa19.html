@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa19</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <div id="corp">
+      <header>
+        <h1>APROVEITAMENTO DO ALUNO</h1>
+      </header>
+      <section>
+        <fieldset id="alun">
+          <legend>PARA O ALUNO</legend>
+          <div class="nome">
+            <fieldset>
+              <legend>PARA O NOME</legend>
+              <form action="name">
+                <label for="nome">Digite o seu Nome:</label
+                ><input type="text" id="txtnome" placeholder="Nome completo" />
+              </form>
+            </fieldset>
+          </div>
+          <div class="nome">
+            <fieldset>
+              <legend>PARA AS NOTAS</legend>
+              <form action="notas">
+                <label for="nt1">Insira a Nota1:</label
+                ><input type="text" maxlength="2" id="txtnota1" class="txtnt" />
+                <br />
+                <label for="nt2">Insira a Nota2:</label
+                ><input type="text" maxlength="2" id="txtnota2" class="txtnt" />
+              </form>
+            </fieldset>
+            <input type="button" value="Submeter" onclick="submeter()" />
+            <fieldset>
+              <legend>PARA A MÉDIA E ANÁLISE DO APROVEITAMENTO</legend>
+              <div id="res1"></div>
+              <div id="res">Após submeter terás a media e análise</div>
+            </fieldset>
+          </div>
+        </fieldset>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
