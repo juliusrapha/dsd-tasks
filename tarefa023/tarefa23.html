@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa23</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="corpo">
+      <header><h1>PROMOÇÃO EXCLUSIVA PARA O DIA DA MULHER</h1></header>
+      <section>
+        <div id="fiel">
+          <fieldset>
+            <legend>Dados do cliente</legend>
+            <form action="dads">
+              <label for="nome">Nome do cliente:</label><input type="text" id="nome" maxlength="30"/> &nbsp;
+              <p>
+                  <label for="sex">Sexo:</label>
+                  <input type="radio" name="marc" id="checMul" checked/><label for="fem"
+                    >Feminino</label
+                  >
+                  <input type="radio" name="marc" id="checHom" /><label for="hom"
+                    >Homem</label
+                  >
+              </p>
+              <label for="valor">O valor total das compras:</label><input type="text" id="valor">
+              <p><input type="button" value="Confirmar" onclick="confirmar()"></p>
+            </form>
+          </fieldset>
+        </div>
+      </section>
+      <div id="res"><label for="res">O preço a pagar com desconto:</label><input type="text" id="resu" readonly></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
