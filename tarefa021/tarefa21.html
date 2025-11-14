@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa21</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="corpo">
+      <header><h1>VERIFICADOR DE UM ANO SER OU NÃO BISSEXTO</h1></header>
+      <section>
+        <div >
+          <form action="ano">
+            <label for="ano">Digite o ano:</label><input type="text" id="ano1" placeholder="ex.2000"/>
+            <input
+              type="button"
+              value="verificar"
+              onclick="verificar()"
+              id="btn"
+            />
+          </form>
+
+          <div id="res"></div>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
