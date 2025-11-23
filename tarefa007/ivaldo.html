@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 007</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div.first {
+            margin: 0px auto;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(68, 151, 245);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .first input {
+            border: none;
+            border-radius: 5px;
+            padding: 4px;
+        }
+        .first button {
+            border-radius: 5px;
+            border: none;
+            transition-property: background;
+            transition-duration: 500ms;
+            text-transform: uppercase;
+            padding: 5px;
+            font-size: 8pt;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        .first button:hover {
+            background-color: rgb(6, 19, 43);
+            color: #fff;
+        }
+        div#res {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div first">
+        <p>
+            <label for="n">Digite um numero: </label> 
+            <input type="number" name="n" id="n">
+        </p>
+        <button onclick="calcular()">Exibir</button>
+    </div>
+    <div id="res" class="first"></div>
+
+
+    <script>
+        function calcular() {
+            const t = document.getElementById('n')
+            const n = Number(t.value)
+            var res = document.getElementById('res')
+            let dobro = n*2
+            let tercaparte = n/3
+
+            res.innerHTML = `
+                <p>O dobro de ${n} eh ${dobro} </p>
+                <p>A Terca parte de ${n} eh ${tercaparte}</p>
+            `
+        }
+    </script>
+
+
+</body>
+</html>
