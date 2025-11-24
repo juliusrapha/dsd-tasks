@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="tarefa21.css">
+    <title>situacaomilitar.devs</title>
+</head>
+<body>
+    <section id="entrada">
+        <h1>Verificador de Ano Bissexto</h1>
+        <div id="dentro">
+            <label for="ano">Ano</label>
+            <input type="number" id="ano" placeholder="Ex: 2010">
+            <button onclick="Mensagem()" id="btn">OK</button>
+        </div>
+        <p id="resp"></p>
+    </section>
+
+    <script>
+        function Mensagem() {
+            let anoCampo = document.getElementById("ano");
+            let ano = anoCampo.value.trim(); // trim() limpa os espacos em branco antes e depois do ano 
+            let resultado = document.getElementById("resp");
+
+            // Verifica se tem exatamente 4 dígitos numéricos
+            if (!/^\d{4}$/.test(ano)) {
+                resultado.textContent = "Por favor, digite um ano com exatamente 4 dígitos.";
+                return;
+            }
+
+            ano = Number(ano);
+
+            if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+                resultado.textContent = ano + " é um ano bissexto.";
+            } else {
+                resultado.textContent = ano + " não é um ano bissexto.";
+            }
+        }
+    </script>
+</body>
+</html>
