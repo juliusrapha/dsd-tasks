@@ -15,10 +15,8 @@
 <script>
     function Converter() {
         let montante= parseFloat(document.getElementById("valor").value)
-        document.getElementById("resultado").innerHTML=`O(A) senhor(a) pode comprar US$${montante*63.40} `
-
+         document.getElementById("resultado").innerHTML=`O(A) senhor(a) pode comprar ${(montante*63.40).toLocaleString('pt-BR',{style:'currency',currency:'USD'})} `
     }
 </script>
-    
 </body>
 </html>
