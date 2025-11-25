@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Multa.automoblista</title>
+        <style>
+            body{
+                background-color: gray;
+            }
+            section#Avisos{
+                border: 2px solid white;
+                background-color: rgb(224, 223, 222);
+                width: 800px;
+                margin: auto;
+                text-align: center;
+                text-decoration: solid;
+                margin-top: 10%;
+                
+            }
+            section#Entrada{
+                background-color: rgb(224, 223, 222);
+                border: 2px solid white;
+                width: 800px;
+                margin: auto;
+                padding-top: 0%;
+                padding-bottom: 9%;
+                border-spacing: 10cqi;
+                margin-top: 01%;
+                box-shadow: 1px 1px 2px white;
+            }
+            div#Dados{
+                margin: auto;
+                margin-top:9%;
+                padding-top: 5%;
+                padding-left: 33%;
+            }
+            button#btn{
+                background-color: black;
+                color: blanchedalmond;
+                margin-left: 25%;
+                margin-top: 1%;
+            }
+            div#saida{
+                border: 2px solid white;
+                border-style: groove;
+                background-color: rgb(224, 223, 222);
+                margin-left: 20%;
+                margin-right: 20%;
+                margin-top: 1%;
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+    <body>
+
+        <section id="Avisos">
+
+            <h1>Teste De Volocidade</h1>
+            <P>Caro automoblista, dirija sempre abaixo de 80km/h</P>
+
+        </section>
+
+        <Section id="Entrada">
+            <div id="Dados">
+                <label for="valocidade">Velocidade</label>
+                
+                <input type="number" id="vel"  placeholder="Ex: 60km/h">
+                <br><br>
+
+                <button id="btn" onclick="ExibirMulta()">Enviar</button>
+            </div>
+        </Section>
+
+        <div id="saida">
+            <p id="msg"></p>
+        </div>
+        
+        <script>
+        function ExibirMulta(){
+            var velocidade= Number(document.getElementById("vel").value)
+            var res = document.getElementById("msg")
+            var excesso = velocidade-80
+            var multa = excesso*5
+
+            if(velocidade>80){
+                res.textContent=`Execedeu o limite de volocidade. Multa ${multa.toFixed(2)}R$.`
+                
+            }else{
+                res.textContent="Velocidade regular, Boa Viajem!"
+            }
+       }
+
+        </script>
+    </body>
+
+</html>
