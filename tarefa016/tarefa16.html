@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redução do Tempo de Vida - Fumante</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #e3f2fd, #bbdefb);
+            color: #063b8a;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #052b68;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+            border: 1px solid #90caf9;
+            border-radius: 6px;
+            width: 200px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #1954d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #008cff;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            color: #0d47a1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            min-width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Redução do Tempo de Vida de um Fumante</h1>
+
+    <label for="cigarros">Cigarros fumados por dia:</label><br>
+    <input type="number" id="cigarros" placeholder="ex: 15"><br><br>
+
+    <label for="anos">Anos fumando:</label><br>
+    <input type="number" id="anos" placeholder="ex: 10"><br><br>
+
+    <button onclick="Calcular()">Calcular</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+
+    <script>
+        function Calcular() {
+            let cigarros = Number(document.getElementById("cigarros").value);
+            let anos = Number(document.getElementById("anos").value);
+
+            // Cada cigarro reduz 10 minutos de vida
+            let minutosPerdidos = cigarros * anos * 365 * 10;
+
+            // Converter minutos em dias
+            let diasPerdidos = minutosPerdidos / 60 / 24;
+
+            document.getElementById("resultado").innerHTML =
+                `Em ${anos} anos, fumando ${cigarros} cigarros por dia, 
+                você perdeu aproximadamente <b>${diasPerdidos.toFixed(1)}</b> dias de vida.`;
+        }
+    </script>
+</body>
+</html>
