@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa24 - Calculadora de Taxi</title>
+   <style>
+    body{
+        background: #f4f4f4; 
+        font-family: Arial, sans-serif;
+    }
+    
+    /* Container Principal */
+    div#corpo{
+        position: relative;
+        border: 2px solid blueviolet;
+        width: 550px;
+        margin: 100px auto; 
+        padding: 20px;
+        box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+        background: white;
+        border-radius: 10px;
+    }
+
+    /* Cabeçalho */
+    header{
+        text-align: center;
+        text-shadow: 2px 2px 5px #a020f0;
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 1px solid blueviolet;
+        padding-bottom: 10px;
+    }
+
+    /* Seção de Conteúdo */
+    section{
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Inputs e Labels */
+    label, input[type="number"], input[type="text"], input[type="button"] {
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 8px;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: block; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    input[type="number"], input[type="text"] {
+        border: 1px solid #ccc;
+    }
+
+    input[type="button"] {
+        background-color: blueviolet;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-bottom: 20px;
+    }
+
+    input[type="button"]:hover {
+        background-color: #6a1b9a;
+    }
+    
+    /* Resultado */
+    div#resultado-container {
+        margin-top: 10px;
+        padding: 15px;
+        background-color: #e6e6fa; 
+        border: 1px solid blueviolet;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #resu {
+        background-color: white;
+        text-align: center;
+        font-size: 1.2em;
+        color: blueviolet;
+    }
+    
+    #erro-mensagem {
+        color: darkred;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+   </style>
+  </head>
+  <body>
+    <div id="corpo">
+      <header>
+        <h1>TAXI - CÁLCULO DE PASSAGEM</h1>
+      </header>
+      <section>
+        <div>
+          <form>
+            <label for="dista">Qual a distância que quer percorrer (Km):</label>
+            <input type="number" id="dista" placeholder="Ex: 150 ou 250" step="0.01" min="0" required/>
+            <input type="button" value="Calcular Montante" onclick="montante()">
+            
+            <div id="feedback"></div>
+            
+            <div id="resultado-container">
+                <label for="resu">O preço da passagem (Mts):</label>
+                <input type="text" id="resu" value="" readonly />
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    
+    <script>
+/**
+ * Calcula o montante da corrida de táxi baseado na distância percorrida.
+ * Regra: R$ 0.50/km para até 200km; R$ 0.40/km para mais de 200km.
+ */
+function montante() {
+    var distaInput = document.querySelector('input#dista');
+    var resInput = document.querySelector('input#resu');
+    var feedbackDiv = document.querySelector('div#feedback');
+    
+    var distan = Number(distaInput.value);
+    var valorFinal = 0;
+
+    // Limpa a mensagem anterior e o resultado
+    feedbackDiv.innerHTML = '';
+    resInput.value = '';
+
+    // --- 1. Validação Aprimorada ---
+    if (distaInput.value.length === 0 || isNaN(distan) || distan <= 0) {
+        feedbackDiv.innerHTML = '<span id="erro-mensagem">⚠️ **[ERRO]** Insira uma distância válida e positiva em Km.</span>';
+        distaInput.focus();
+        return;
+    }
+
+    // --- 2. Lógica de Cálculo ---
+    if (distan <= 200) {
+        // Tarifa padrão para distâncias curtas/médias (até 200 km)
+        valorFinal = distan * 0.50;
+        feedbackDiv.innerHTML = '💸 Tarifa aplicada:  0.50Mts por Km.';
+    } else {
+        // Tarifa com desconto para distâncias longas (acima de 200 km)
+        valorFinal = distan * 0.40;
+        feedbackDiv.innerHTML = '💰 Tarifa com desconto aplicada: R$ 0.40 por Km.';
+    }
+
+    // --- 3. Apresentação do Resultado Formatado ---
+    // Formata o valor final para o padrão monetário (duas casas decimais e vírgula)
+    var valorFormatado = valorFinal.toFixed(2).replace('.', ',');
+    
+    resInput.value = `${valorFormatado}Mts`;
+}
+</script>
+  </body>
+</html>
