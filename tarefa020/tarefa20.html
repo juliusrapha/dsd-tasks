@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarefa20 - Paridade</title>
+   <style>
+
+body{
+    background: rgb(59, 54, 54);
+    font-family: Arial, sans-serif;
+}
+section{
+    position: relative;
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: #f0f0f0; /* Fundo claro para a seção */
+}
+header{
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+#corpo{
+    position: relative;
+    margin: 50px auto; /* Adicionei margem superior para afastar do topo */
+    border: 1px solid #333;
+    width: 450px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    background: rgb(47, 85, 47); /* Fundo verde */
+}
+#res{
+    border: 1px solid #333;
+    margin-top: 10px;
+    padding: 10px;
+    color: white; 
+    background-color: #333; /* Fundo escuro para o resultado */
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px; /* Garante uma altura mínima */
+}
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+#btn{
+    position: relative;
+    left: 10px; /* Ajustei a posição para centralizar melhor */
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+#btn:hover {
+    background-color: #4cae4c;
+}
+   </style>
+</head>
+<body>
+ <div id="corpo">
+     <header><h1>PARIDADE DE UM NÚMERO</h1></header>
+        <section>
+            <form> 
+                Insira o número: 
+                <input type="number" id="txtnum" placeholder="e.g 400" required>
+                <input type="button" value="OKAY" onclick="okay()" id="btn">
+            </form>
+            
+            <div id="res">Aguardando a inserção de um número...</div>
+            
+        </section>
+ </div>
+
+<script>
+/**
+ * Função principal para verificar a paridade (Par ou Ímpar) do número inserido.
+ */
+function okay() {
+  var txtnum = document.querySelector("input#txtnum");
+  var res = document.querySelector("div#res");
+  // Converte o valor para número. Se a entrada estiver vazia, Number("") resulta em 0,
+  // por isso usamos a validação de length e Number.isInteger.
+  var numer = Number(txtnum.value);
+
+  // --- Validação Aprimorada ---
+  // 1. Verifica se o campo está vazio.
+  // 2. Verifica se o valor não é um número (NaN).
+  // 3. Verifica se o número não é um inteiro (exclui decimais como 4.5).
+  if (txtnum.value.length === 0 || isNaN(numer) || !Number.isInteger(numer)) {
+    // Exibe a mensagem de erro diretamente na área de resultado
+    res.innerHTML = `⚠️ **[ERRO]** Por favor, insira um número inteiro válido.`;
+    res.style.backgroundColor = 'darkred'; // Destaque para erro
+    return; // Interrompe a execução
+  }
+
+  // --- Lógica de Paridade ---
+  // Utiliza o operador módulo (%) para verificar o resto da divisão por 2.
+  if (numer % 2 === 0) {
+    res.innerHTML = `✅ O número **${numer}** que você inseriu é **PAR**!`;
+  } else {
+    res.innerHTML = `❌ O número **${numer}** que você inseriu é **ÍMPAR**!`;
+  }
+  
+  // Restaura o estilo do resultado após o cálculo bem-sucedido
+  res.style.backgroundColor = '#333';
+  
+  // --- Limpeza e Foco ---
+  txtnum.value = ""; // Limpa o campo para a próxima entrada
+  txtnum.focus(); // Coloca o cursor no campo novamente
+}
+</script>
+
+</body>
+</html>
