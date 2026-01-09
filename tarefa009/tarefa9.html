@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa9</title>
+</head>
+<body>
+    <script>
+        var dinh = Number(prompt('Quanto dinheiro tem na Carteira(em MTS)'))
+        var dol = dinh/63.40
+        if (dinh == 0) {
+            alert(`Com os ${dinh}MTS não poderá comprar algum dolar`)
+        }else if (dinh < 2*63.40) {
+            alert(`Com os ${dinh}MTS poderá comprar apenas ${dol}Dólar`)
+        }else
+        {alert(`Com os ${dinh}MTS poderá comprar apenas ${dol}Dólares`)}
+    </script>
+</body>
+</html>
