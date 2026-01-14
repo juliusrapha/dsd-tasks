@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cálculo do Salário do Funcionário</h1>
+
+    <label for="dias">Insira o número de dias trabalhados no mês:</label>
+    <input type="number" id="dias" step="any" placeholder="dias trabalhados">
+
+    <br><br>
+    <button onclick="Calcular()">Calcular</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+
+    <script>
+        function Calcular() {
+            let dias = Number(document.getElementById("dias").value);
+            let horasPorDia = 8;
+            let valorHora = 37.5;
+            let salario = dias * horasPorDia * valorHora;
+
+            document.getElementById("resultado").innerHTML = 
+            `Trabalhando ${dias} dias no mês, o salário será de ${salario.toFixed(2)} MT.`;
+        }
+    </script>
+</body>
+</html>
