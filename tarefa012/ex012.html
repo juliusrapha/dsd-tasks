@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preco_Promocional</title>
+</head>
+<body>
+    <script>
+        let preco = parseFloat(prompt("Digite o preço do produto: "));
+
+        function precoPromocional(preco) {
+            if (preco) {
+                return ("O preço promocional do produto é: R$ " + (preco - preco * 0.05 ).toFixed(2));
+            }
+        }
+
+        document.write(precoPromocional(preco));
+    </script>
+    
+</body>
+</html>
