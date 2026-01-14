@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de dolares($)</title>
+</head>
+<body>
+    <h1>Valor e capacidade de compra</h1>
+      <label for="valor"> insira o valor que tem na carteira: </label>
+       <input type="number" id="valor" step="any" placeholder="insila o montante">
+        <button onclick="Converter()">Converter</button>
+         <h3>quantidade de dolares($) que pode comprar</h3>
+           <p id="resultado"></p>
+<script>
+    function Converter() {
+        let montante= parseFloat(document.getElementById("valor").value)
+         document.getElementById("resultado").innerHTML=`O(A) senhor(a) pode comprar ${(montante*63.40).toLocaleString('pt-BR',{style:'currency',currency:'USD'})} `
+    }
+</script>
+</body>
+</html>
