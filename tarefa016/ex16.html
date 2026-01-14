@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>vidas.dum.fumante</title>
+        <style>
+          section#seccao{
+            border-radius: 2%;
+            background-color: rgb(208, 226, 226);
+            margin: auto;
+            width: 800px;
+            padding-top: 8%;
+            padding-bottom: 5%;
+            margin-top: 10%;
+            
+          }
+          div#entrada{
+            margin: auto;
+            padding-left: 25%;
+          }
+          p{
+            border: 1px solid rgb(208, 226, 226);
+            background-color: rgb(208, 226, 226) ;
+            text-align: center;
+            margin-left: 20%;
+            margin-right: 20%;
+
+
+          }
+        </style>
+    </head>
+    <body>
+        <section id="seccao">
+             <h1 style="text-align: center; padding: auto;">Infome se sobre sua saude</h1>
+        <div id="entrada">
+        <label style="border: 1px solid black; background-color: rgb(243, 242, 240);" for="cigarros">Quantos cigarros fuma por dia?</label>
+        
+        <input type="number" id="quantidade" placeholder="Ex: 5 cigarros por dia.">
+        
+        <br><br>
+        <label style="border: 1px solid black; background-color: rgb(243, 242, 240);" for="anoDeInicio" >Quando começou a fumar?</label>
+        
+        <input type="number" id="inicioAno" min="1900" max="2025" placeholder="Ex: 2010"><br><br>
+
+
+        <input type="button" value="Enviar" onclick="exibirAnosDEVida()">
+        </div>
+        </section>
+
+        <p id="resultado"></p>
+
+        <script>
+            function exibirAnosDEVida(){
+            var quantidade = Number.parseInt(document.getElementById('quantidade').value)
+            var anoDeInicio = Number.parseInt(document.getElementById('inicioAno').value)
+            var resultado = document.getElementById('resultado')
+            var anoAtual = new Date().getFullYear()
+           
+            if ( anoDeInicio > anoAtual ) {
+                 resultado.textContent = "Por favor, insira valores válidos.";
+                 return;
+                 }
+            if(quantidade<0){
+                resultado.textContent = "Por favor, insira valores válidos.";
+                return
+            }
+
+            var tempoFumando = anoAtual-anoDeInicio //Aqui calcula o numero de anos que fumou
+            var totalCigarros = 365*quantidade*tempoFumando
+
+            var minutos_dePerda = totalCigarros*10 //o tempo de vida perdida e proporcional ao total de cigarros pela unidade de tempo
+            var diasDeVida = minutos_dePerda/(60*24) // converte tempo de vidas perdidas por minutos em dias.
+            
+            resultado.textContent=`Perdeu cerca de ${diasDeVida.toFixed(0)} dias de vida fumando ${quantidade} cigarros por dia.`
+            //document.getElementById('resultado').textContent=`Perdeu cerca de ${diasDeVida.toFixed(0)} dias de vida fumando ${quantidade} cigarros por dia.`
+            }
+        </script>
+    </body>
+</html>
