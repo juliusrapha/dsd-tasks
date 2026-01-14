@@ -1,0 +1,8 @@
+
+
+let nota1 = parseFloat(prompt("Nota 1:"));
+let nota2 = parseFloat(prompt("Nota 2:"));
+
+let media = (nota1 + nota2) / 2;
+
+alert(`A média entre ${nota1} e ${nota2} é igual a ${media}.`);
