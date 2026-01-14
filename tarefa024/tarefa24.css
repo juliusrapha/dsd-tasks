@@ -1,0 +1,44 @@
+body {
+    border: 15px groove gray;
+    background-color: rgb(221, 218, 218);
+    height: 850px;
+}
+
+section#entrada {
+
+    border: 2px solid rgb(199, 198, 198);
+    position: relative;
+    border-top-left-radius: 7%;
+    border-bottom-right-radius: 13%;
+    box-shadow: 2px 1px 3px white;
+    top: 5%;
+    left: 27%;
+    width: 550px;
+    height: 300px;
+    text-size-adjust: 10pt;
+    text-align: center;
+    color: rgb(70, 69, 71);
+
+}
+
+div#dentro {
+    position: relative;
+    left: 0%;
+    top: 30%;
+    color: rgb(2, 0, 3);
+    text-decoration-style: double;
+    text-size-adjust: 30pt;
+}
+
+p#resp {
+    position: relative;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    box-decoration-break: initial;
+    box-shadow: 3px 3px 7px black;
+    box-sizing: content-box;
+    text-align: center;
+    width: 257px;
+    top: 30%;
+    left: 19%;
+}

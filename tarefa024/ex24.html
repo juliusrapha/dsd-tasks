@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="tarefa24.css">
+        <title></title>
+    </head>
+    <body>
+        <section id="entrada">
+            <h1>Saiba Quanto Vai Custar Sua Viagem</h1>
+            <div id="dentro">
+
+                <label for="distancia" >distancia da viagem</label>
+                <input type="number" id="dist" placeholder="Exemplo:100km.">
+                <button onclick="exibirPreco()" id="btn">OK</button>
+
+            </div>
+
+            <P id="resp"></P>
+
+        </section>
+        <script>
+            
+            function exibirPreco(){
+
+                var distance = Number(document.getElementById("dist").value)
+                var resp = document.getElementById("resp")
+
+                if(distance<0){
+                    res.textContent="VALOR INVALIDO. POR FAVOR, TENTE NOVAMENTE!"
+                }else if(distance<=200){
+                    resp.textContent=`VALOR DA VIAGEM: ${(distance*0.50).toFixed(2)} MTs`
+                }else{
+                    resp.textContent=`VALOR DA VIAGEM: ${(distance*0.45).toFixed(2)} MTs`
+                }
+            
+            }
+        </script>
+
+    </body>
+</html>
