@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa23 - Promoção Dia da Mulher</title>
+  <style>
+/* Estilos Base e Reset */
+* {
+    border-radius: 5px; /* Reduzi um pouco para um visual mais moderno */
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(59, 54, 54); /* Fundo escuro */
+    font-family: Arial, sans-serif;
+}
+
+/* Container Principal */
+div#corpo {
+    position: relative;
+    background: #8A2BE2; /* Azul violeta */
+    width: 700px;
+    margin: 100px auto; /* Centralizado verticalmente e horizontalmente */
+    box-shadow: 5px 5px 20px rgba(247, 245, 245, 0.2);
+    padding-bottom: 20px;
+}
+
+header {
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Seção de Formulário */
+section {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+div#fiel {
+    background: rgba(255, 255, 255, 0.9); /* Fundo claro para o formulário */
+    padding: 15px;
+    border-radius: 5px;
+}
+
+fieldset {
+    border: 1px solid #6a1b9a;
+    padding: 15px;
+}
+
+legend {
+    color: #6a1b9a;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Inputs e Botão */
+input[type="text"], input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 150px;
+}
+
+input#valor {
+    width: 120px;
+}
+
+input[type="button"] {
+    padding: 10px 20px;
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #4a148c;
+}
+
+/* Área de Resultado */
+div#res {
+    text-align: center;
+    padding: 15px;
+    margin: 15px 5%;
+    background-color: #4a148c; /* Cor de destaque para o resultado */
+    color: white;
+    font-size: 1.1em;
+}
+/* O input#resu foi removido e substituído por exibição direta na div#res */
+
+  </style>
+  </head>
+  <body>
+    <div id="corpo">
+      <header><h1>PROMOÇÃO EXCLUSIVA PARA O DIA DA MULHER 👩‍🦰</h1></header>
+      <section>
+        <div id="fiel">
+          <fieldset>
+            <legend>Dados do Cliente e Compra</legend>
+            <form>
+              <label for="nome">Nome do cliente:</label>
+              <input type="text" id="nome" maxlength="30" required/> 
+              <br><br>
+              <label for="sex">Sexo:</label>
+              <input type="radio" name="marc" id="checMul" value="feminino" checked/>
+              <label for="checMul">Feminino</label>
+              <input type="radio" name="marc" id="checHom" value="masculino" />
+              <label for="checHom">Masculino</label>
+              <p>
+                <label for="valor">O valor total das compras (Mts):</label>
+                <input type="number" id="valor" step="0.01" min="0" required>
+              </p>
+              <p><input type="button" value="Confirmar Desconto" onclick="confirmar()"></p>
+            </form>
+          </fieldset>
+        </div>
+      </section>
+      <div id="res">Preencha os dados acima para calcular o valor com desconto.</div>
+    </div>
+    
+    <script>
+/**
+ * Calcula e exibe o desconto aplicado com base no sexo do cliente.
+ * Feminino: 13% de desconto.
+ * Masculino: 5% de desconto.
+ */
+function confirmar() {
+  var nomeInput = document.querySelector("input#nome");
+  var valorInput = document.querySelector("input#valor");
+  var sexoInputs = document.getElementsByName("marc");
+  var resDiv = document.querySelector("div#res");
+
+  var nomeCliente = nomeInput.value.trim();
+  var valorCompra = Number(valorInput.value);
+
+  // --- 1. Validação Aprimorada ---
+  if (nomeCliente === "" || valorInput.value.length === 0 || isNaN(valorCompra) || valorCompra <= 0) {
+    resDiv.innerHTML = `⚠️ **[ERRO]** Por favor, verifique o nome e o valor da compra (deve ser um número positivo).`;
+    resDiv.style.backgroundColor = 'darkred';
+    resDiv.style.color = 'white';
+    return;
+  }
+  
+  // Reset do estilo de erro
+  resDiv.style.backgroundColor = '#4a148c';
+  resDiv.style.color = 'white';
+
+  // --- 2. Determinação do Sexo e Desconto ---
+  var isFeminino = sexoInputs[0].checked;
+  var descontoPercentual;
+  
+  if (isFeminino) {
+    descontoPercentual = 0.13; // 13% para mulheres
+  } else {
+    descontoPercentual = 0.05; // 5% para homens
+  }
+  
+  // --- 3. Cálculo do Valor Final ---
+  var valorDesconto = valorCompra * descontoPercentual;
+  var valorFinal = valorCompra - valorDesconto;
+  
+  // Usa toFixed(2) para garantir duas casas decimais, como é padrão para dinheiro
+  var valorFinalFormatado = valorFinal.toFixed(2).replace('.', ',');
+  var valorDescontoFormatado = valorDesconto.toFixed(2).replace('.', ',');
+  var descontoAplicado = (descontoPercentual * 100).toFixed(0);
+
+  // --- 4. Exibição do Resultado ---
+  var saudacao = isFeminino ? `Parabéns **${nomeCliente}**! (Desconto de ${descontoAplicado}%)` : 
+                               `Olá **${nomeCliente}**! (Desconto de ${descontoAplicado}%)`;
+  
+  resDiv.innerHTML = `
+    <h4>${saudacao}</h4>
+    <p>Valor Original: ${valorCompra.toFixed(2).replace('.', ',')}Mts</p>
+    <p>Valor do Desconto: ${valorDescontoFormatado}Mts</p>
+    <p><strong>Total a Pagar: ${valorFinalFormatado}Mts</strong></p>
+  `;
+}
+</script>
+  </body>
+</html>
