@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análise de Aproveitamento do Aluno</title>
+   <style>
+    body {
+        background: #9fa1c7; /* Cor de fundo ajustada */
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Centraliza verticalmente */
+    }
+    
+    #corp {
+        width: 90%;
+        max-width: 700px;
+        border: 1px solid #333; /* Borda visível */
+        background: #a9a9a9; /* Cinza */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+        position: static; /* Remove a posição absoluta para melhor fluxo */
+        top: auto;
+    }
+
+    header {
+        text-align: center;
+        color: white;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    section {
+        width: 100%;
+        margin: auto;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .nome {
+        background: #ced0ef; /* Cor ajustada para contraste */
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+
+    fieldset {
+        background: #e0e0e0; /* Cinza mais claro para o fieldset */
+        border: 1px solid #777;
+        border-radius: 10px;
+        color: #093333;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+
+    legend {
+        font-weight: bold;
+        color: #333;
+    }
+
+    input[type="text"], input[type="number"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: calc(100% - 18px); /* Ajusta a largura */
+        box-sizing: border-box;
+        box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    input[type="button"] {
+        padding: 10px 15px;
+        background-color: #4CAF50; /* Verde */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 15px;
+        transition: background-color 0.3s;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="button"]:hover {
+        background-color: #45a049;
+    }
+    
+    #res1, #res {
+        padding: 5px 0;
+        font-weight: bold;
+    }
+    #res {
+        margin-top: 10px;
+        color: #ff4500; /* Cor para destacar o resultado */
+    }
+   </style>
+  </head>
+  <body>
+    <div id="corp">
+      <header>
+        <h1>APROVEITAMENTO DO ALUNO</h1>
+      </header>
+      <section>
+        <fieldset id="alun">
+          <legend>✅ PARA O ALUNO</legend>
+          <div class="nome">
+            <fieldset>
+              <legend>👤 PARA O NOME</legend>
+              <label for="txtnome">Digite o seu Nome:</label>
+                <input type="text" id="txtnome" placeholder="Nome completo" />
+            </fieldset>
+          </div>
+          <div class="nome">
+            <fieldset>
+              <legend>💯 PARA AS NOTAS</legend>
+              <label for="txtnota1">Insira a Nota 1 (0 a 10):</label>
+                <input type="number" min="0" max="10" step="0.01" id="txtnota1" class="txtnt" />
+                <br />
+                <label for="txtnota2">Insira a Nota 2 (0 a 10):</label>
+                <input type="number" min="0" max="10" step="0.01" id="txtnota2" class="txtnt" />
+            </fieldset>
+            <input type="button" value="Submeter" onclick="calcularMedia()" />
+            <fieldset>
+              <legend>📊 PARA A MÉDIA E ANÁLISE DO APROVEITAMENTO</legend>
+              <div id="res1"></div>
+              <div id="res">Após submeter, terás a média e a análise.</div>
+            </fieldset>
+          </div>
+        </fieldset>
+      </section>
+    </div>
+
+    <script>
+      function calcularMedia() {
+        const MEDIA_MINIMA = 7;
+        const NOTA_MAXIMA = 10;
+        const NOTA_MINIMA = 0;
+
+        const nome = document.querySelector("#txtnome").value.trim();
+        const nota1Input = document.querySelector("#txtnota1");
+        const nota2Input = document.querySelector("#txtnota2");
+        const nota1 = Number(nota1Input.value);
+        const nota2 = Number(nota2Input.value);
+
+        const res1 = document.querySelector("#res1");
+        const res = document.querySelector("#res");
+
+        // --- VALIDAÇÃO DE DADOS ---
+        if (nome === "") {
+            alert("[ERRO] Por favor, insira o seu Nome.");
+            return;
+        }
+        
+        if (nota1Input.value === "" || nota2Input.value === "") {
+            alert("[ERRO] Por favor, preencha ambas as notas.");
+            return;
+        }
+
+        if (nota1 < NOTA_MINIMA || nota1 > NOTA_MAXIMA || nota2 < NOTA_MINIMA || nota2 > NOTA_MAXIMA) {
+            alert(`[ERRO] As notas devem estar entre ${NOTA_MINIMA} e ${NOTA_MAXIMA}.`);
+            return;
+        }
+
+        // --- CÁLCULO E ANÁLISE ---
+        const mediaCalc = (nota1 + nota2) / 2;
+
+        res1.innerHTML = `**${nome}**, a sua média final é **${mediaCalc.toFixed(2)}**.`;
+
+        if (mediaCalc < MEDIA_MINIMA) {
+            res.style.color = 'red';
+            res.innerHTML = `[MAU APROVEITAMENTO] A sua nota final está **abaixo da média** (${MEDIA_MINIMA}).`;
+        } else {
+            res.style.color = 'green';
+            res.innerHTML = `[BOM APROVEITAMENTO] A sua nota final está **acima/igual da média** (${MEDIA_MINIMA}).`;
+        }
+      }
+    </script>
+  </body>
+</html>
