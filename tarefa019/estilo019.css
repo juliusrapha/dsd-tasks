@@ -1,0 +1,65 @@
+body {
+    background-color: rgb(212, 198, 212);
+
+}
+
+section#entrada {
+    border: 1px groove rgb(243, 243, 48);
+    background-color: rgba(89, 224, 11, 0.87);
+    width: 600px;
+    height: 600px;
+    padding-top: 5%;
+    text-align: center;
+    text-decoration: wavy;
+    text-size-adjust: 5pt;
+
+}
+
+div#dentro {
+    border: 1px groove white;
+    border-radius: 50%;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+    background-color: white;
+    margin: auto;
+    width: 300px;
+    height: 200px;
+    align-items: center;
+    flex: auto;
+    text-align: center;
+    font-size: medium;
+    font-family: Arial;
+    padding-top: 10%;
+}
+
+div#fora {
+    border: 1px solid white;
+    border-spacing: 10dvh;
+    background-color: black;
+    color: white;
+    width: 600px;
+    height: 100px;
+    position: relative;
+    padding-bottom: 5%;
+    top: -400px;
+    left: 48%;
+
+}
+
+p#afixo {
+    text-align: left;
+    padding-left: 10%;
+    font-size: 23px;
+    color: red;
+
+}
+
+p {
+
+    text-align: left;
+    padding-left: 25%;
+    font-size: 20px;
+    font: italic;
+
+
+}
