@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Métrica</title>
+</head>
+<body>
+    <h2>Sistema Métrica</h2>
+  <label for="metros">Insira a distância, em metros:</label>
+  <input type="number" id="metros" step="any" placeholder="distância">
+  <button onclick="converter()">Converter</button>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+   
+  <script>
+    function converter() {
+      const distancia = parseFloat(document.getElementById("metros").value);
+      document.getElementById("resultado").innerHTML = `
+        A distância de ${distancia}m corresponde a:</br>
+        ${distancia/1000} Km<br>
+        ${distancia/100} Hm<br>
+        ${distancia/10} Dam<br>
+        ${distancia*10} dm<br>
+        ${distancia*100} cm<br>
+        ${distancia*1000} mm<br>`
+    }
+    </script>
+</body>
+</html>
