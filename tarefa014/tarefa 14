@@ -1,0 +1,13 @@
+
+let dias = parseInt(prompt("Por quantos dias o carro foi alugado?"));
+let km = parseFloat(prompt("Quantos Km foram percorridos?"));
+
+let precoPorDia = 90;      // R$ 90 por dia
+let precoPorKm = 0.20;     // R$ 0,20 por km
+
+let total = (dias * precoPorDia) + (km * precoPorKm);
+
+alert(
+  "O carro foi alugado por " + dias + " dias e percorreu " + km + " Km.\n" +
+  "O preço total a pagar é: R$ " + total.toFixed(2)
+);
