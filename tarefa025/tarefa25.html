@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tarefa25 - Construção de Triângulo</title>
+   <style>
+/* Estilos Gerais */
+body {
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Container Principal */
+#corpo {
+    position: relative;
+    width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    text-align: center;
+    color: #4CAF50; /* Verde */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Fieldsets e Labels */
+fieldset {
+    border: 1px solid #4CAF50;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+legend {
+    font-weight: bold;
+    color: #4CAF50;
+    padding: 0 10px;
+}
+
+/* Inputs */
+input[type="number"] {
+    padding: 8px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Botão */
+input[type="button"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+/* Área de Resultado */
+#res {
+    min-height: 40px;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    background-color: #f0f8f0; /* Fundo suave para o resultado */
+}
+
+/* Estilo para erro */
+.erro {
+    background-color: #ffdddd !important; /* Vermelho claro para erro */
+    color: darkred !important;
+}
+
+   </style>
+  </head>
+  <body>
+    <div id="corpo">
+      <header><h1>CONSTRUÇÃO DE TRIÂNGULO</h1></header>
+
+      <div>
+        <fieldset>
+          <legend>CUMPRIMENTO DOS SEGMENTOS DE RETA</legend>
+          <form action="trianguo">
+            <label for="seg1">Segmento A (cm):</label>
+            <input class="segm" type="number" id="seg1" placeholder="Ex: 5" min="0" step="0.01" required/>
+            <br />
+            <label for="seg2">Segmento B (cm):</label>
+            <input class="segm" type="number" id="seg2" placeholder="Ex: 8" min="0" step="0.01" required/>
+            <br />
+            <label for="seg3">Segmento C (cm):</label>
+            <input class="segm" type="number" id="seg3" placeholder="Ex: 10" min="0" step="0.01" required/>
+            <br />
+            <input type="button" value="Confirmar" onclick="confirma()" />
+          </form>
+        </fieldset>
+        <fieldset>
+            <legend>ANÁLISE DOS CUMPRIMENTOS</legend>
+            <div id="res">Insira os comprimentos dos três segmentos.</div>
+        </fieldset>
+      </div>
+    </div>
+    
+    <script>
+/**
+ * Verifica a condição de existência de um triângulo (Desigualdade Triangular).
+ * A soma de dois lados deve ser sempre maior que o terceiro lado.
+ */
+function confirma() {
+    var seg1Input = document.querySelector("input#seg1");
+    var seg2Input = document.querySelector("input#seg2");
+    var seg3Input = document.querySelector("input#seg3");
+    var resulDiv = document.querySelector("div#res");
+    
+    var segm1 = Number(seg1Input.value);
+    var segm2 = Number(seg2Input.value);
+    var segm3 = Number(seg3Input.value);
+
+    // Limpa o estilo de erro anterior
+    resulDiv.classList.remove('erro');
+    
+    // --- 1. Validação Aprimorada ---
+    // Verifica se algum campo está vazio, não é um número ou é zero/negativo.
+    if (
+        seg1Input.value.length === 0 || isNaN(segm1) || segm1 <= 0 ||
+        seg2Input.value.length === 0 || isNaN(segm2) || segm2 <= 0 ||
+        seg3Input.value.length === 0 || isNaN(segm3) || segm3 <= 0
+    ) {
+        resulDiv.innerHTML = `⚠️ **[ERRO]** Insira comprimentos válidos (números positivos maiores que zero) para todos os segmentos.`;
+        resulDiv.classList.add('erro');
+        return;
+    } 
+
+    // --- 2. Lógica da Desigualdade Triangular (Correta) ---
+    // A soma de dois lados deve ser maior que o terceiro, para todas as combinações.
+    var condicao1 = (segm1 + segm2) > segm3;
+    var condicao2 = (segm1 + segm3) > segm2;
+    var condicao3 = (segm2 + segm3) > segm1;
+    
+    if (condicao1 && condicao2 && condicao3) {
+      // Se todas as condições forem verdadeiras
+      resulDiv.innerHTML = `✅ É **POSSÍVEL** construir um triângulo com segmentos de ${segm1} cm, ${segm2} cm e ${segm3} cm.`;
+      resulDiv.style.backgroundColor = '#d4edda'; // Verde claro de sucesso
+    } else {
+      // Se pelo menos uma condição for falsa
+      resulDiv.innerHTML = `❌ **NÃO** é possível construir um triângulo com esses segmentos, pois a Desigualdade Triangular não é satisfeita.`;
+      resulDiv.classList.add('erro');
+    }
+}
+ </script>
+  </body>
+</html>
