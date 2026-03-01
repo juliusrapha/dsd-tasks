@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade_Para_Votar</title>
+</head>
+<body>
+    <script>
+        let anoNascimento = prompt("Digite o seu ano de nascimento: ");
+        function verificarIdade(anoNascimento) {
+           let idadeAtual = new Date().getFullYear() - anoNascimento;
+           if (idadeAtual < 21){
+            return("Voce tem " + idadeAtual + " anos! Não pode votar.");
+           }else if (idadeAtual >= 21){
+            return( "Voce tem " + idadeAtual + " anos! Pode votar.");
+           }
+            }
+       document.write(verificarIdade(anoNascimento));
+
+    </script>
+    
+</body>
+</html>
