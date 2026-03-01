@@ -1,0 +1,10 @@
+
+let preco = parseFloat(prompt("Digite o preço do produto (em MT):"));
+let desconto = preco * 0.05;
+let precoPromocional = preco - desconto;
+
+alert(
+  "O preço original é: " + preco.toFixed(2) + " MT\n" +
+  "Desconto de 5%: " + desconto.toFixed(2) + " MT\n" +
+  "Preço promocional: " + precoPromocional.toFixed(2) + " MT"
+);
