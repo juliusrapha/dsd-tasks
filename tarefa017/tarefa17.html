@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Multa por Velocidade</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container-principal">
+      <header>
+        <h1>VELOCIDADE DE UM CARRO</h1>
+      </header>
+
+      <main>
+        <section id="calculadora">
+          <form id="form-velocidade">
+            <fieldset>
+              <legend>Cálculo de Multa</legend>
+              <label for="txtvel">Qual a velocidade atual do seu carro (em km/h)?</label>
+              <input
+                type="number"
+                id="txtvel"
+                name="txtvel"
+                min="0"
+                max="999"
+                required
+                placeholder="Ex: 75"
+              />
+              <button type="submit">Verificar</button>
+            </fieldset>
+          </form>
+          <div id="resultado">
+            <p>Insira a velocidade e clique em 'Verificar' para saber se haverá multa.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer>copy&copy; DUALStack DEVS</footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
