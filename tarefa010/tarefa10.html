@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area da parede</title>
+</head>
+<body>
+        <h1>Area e tinta necessaria pra pintar uma parede</h1>
+      <label for="largura"> insira a largura da parede: </label>
+           <input type="number" id="largura" step="any" placeholder="largura">
+      </br></br><label for="altura"> insira a altura da parede: </label>
+           <input type="number" id="altura" step="any" placeholder="altura">
+
+        <button onclick="Calcular()">Calular</button>
+         <h3>Area a ser pintada e a quantidade de tinta</h3>
+           <p id="resultado"></p>
+<script>
+
+    function Calcular() {
+        let larg= Number(document.getElementById("largura").value)
+          if (larg<0) {
+        document.getElementById("resultado").innerHTML = "largura nao pode ser negativa, tenta de novo.";
+        return;
+      }
+        let alt= Number(document.getElementById("altura").value)
+          if (alt<0) {
+        document.getElementById("resultado").innerHTML = "largura nao pode ser negativa, tenta de novo..";
+        return;
+      }
+        document.getElementById("resultado").innerHTML=`A area da parede é ${larg*alt} m² e a quantidade de tinta necessaria para pintar a parede é de ${larg*alt*0.5} litros `
+
+    }
+</script>
+</body>
+</html>
