@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permissão de Voto</title>
+   <style>
+    body {
+        background: #f0f0f0; /* Cor de fundo mais clara e neutra */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    header {
+        text-align: center;
+        color: #008000; /* Verde */
+        margin-bottom: 20px;
+    }
+    section {
+        width: 90%;
+        max-width: 500px; /* Limite o tamanho máximo */
+        background: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 8px; /* Cantos arredondados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    fieldset {
+        background-color: #e6ffe6; /* Verde bem claro */
+        border: 1px solid #008000;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    legend {
+        color: #0000ff; /* Azul */
+        font-weight: bold;
+        padding: 0 10px;
+    }
+    form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="number"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: calc(100% - 100px); /* Ajuste o input */
+        margin-right: 10px;
+    }
+    input[type="button"] {
+        padding: 8px 15px;
+        background-color: #008000;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    input[type="button"]:hover {
+        background-color: #006400;
+    }
+    div {
+        margin-top: 5px;
+        padding: 5px 0;
+    }
+    #res3 {
+        font-weight: bold; /* Destaca o resultado final */
+        color: #ff4500; /* Laranja/vermelho para destaque */
+    }
+   </style>
+  </head>
+  <body>
+    <div id="corp">
+      <header>
+        <h1>PERMISSÃO/ NEGAÇÃO DE VOTAR</h1>
+      </header>
+      <section>
+        <div>
+          <fieldset id="fiel1">
+            <legend id="ques">QUESTÃO</legend>
+            <form>
+              <label for="nasc">Em que ano você nasceu? </label>
+              <input type="number" id="nasc" min="1900" maxlength="4" placeholder="Ex: 2005" />
+              <input type="button" value="Confirmar" onclick="verificarVoto()" id="conf">
+            </form>
+          </fieldset>
+        </div>
+        <fieldset id="fiel2">
+            <legend>POSSÍVEIS CONCLUSÕES</legend>
+          <div id="res1">Aqui verá a tua idade...</div>
+          <div id="res2">Aqui verá a condição...</div>
+          <div id="res3">Aqui verá o resultado final...</div>
+        </fieldset>
+      </section>
+    </div>
+
+    
+    <script>
+      function verificarVoto() {
+        const ANO_MINIMO_VOTAR_OBRIGATORIO = 18;
+        const ANO_MINIMO_VOTAR_OPCIONAL = 16;
+        
+        const dataAtual = new Date();
+        const anoAtual = dataAtual.getFullYear();
+        
+        const inputNascimento = document.querySelector("input#nasc");
+        const anoNascimento = Number(inputNascimento.value);
+
+        const res1 = document.querySelector("div#res1");
+        const res2 = document.querySelector("div#res2");
+        const res3 = document.querySelector("div#res3");
+        
+        // --- VALIDAÇÃO ---
+        if (inputNascimento.value.length === 0 || anoNascimento > anoAtual || anoNascimento < (anoAtual - 120)) {
+            alert("[ERRO] Por favor, insira um ano de nascimento válido.");
+            res1.innerHTML = `Aqui verá a tua idade...`;
+            res2.innerHTML = `Aqui verá a condição...`;
+            res3.innerHTML = `Aqui verá o resultado final...`;
+            return; // Sai da função em caso de erro
+        }
+        
+        const idade = anoAtual - anoNascimento;
+
+        // --- EXIBIÇÃO DA IDADE ---
+        res1.innerHTML = `Você tem **${idade}** anos.`;
+
+        // --- LÓGICA DO VOTO ---
+        if (idade < ANO_MINIMO_VOTAR_OPCIONAL) { 
+            // Voto Proibido (menor de 16)
+            res2.innerHTML = `A tua idade de ${idade} anos é menor que ${ANO_MINIMO_VOTAR_OPCIONAL} anos.`;
+            res3.innerHTML = `Portanto, você **NÃO PODE** votar.`;
+
+        } else if (idade < ANO_MINIMO_VOTAR_OBRIGATORIO || idade >= 70) {
+            // Voto Opcional (entre 16 e 17 OU maior ou igual a 70)
+            let condicao = idade < ANO_MINIMO_VOTAR_OBRIGATORIO ? 
+                           `É menor que ${ANO_MINIMO_VOTAR_OBRIGATORIO} anos.` : 
+                           `É maior ou igual a 70 anos.`;
+            
+            res2.innerHTML = `Você se enquadra na faixa de **voto opcional**. ${condicao}`;
+            res3.innerHTML = `Portanto, o seu voto é **OPCIONAL**.`;
+
+        } else {
+            // Voto Obrigatório (entre 18 e 69)
+            res2.innerHTML = `A tua idade de ${idade} anos é maior ou igual a ${ANO_MINIMO_VOTAR_OBRIGATORIO} anos.`;
+            res3.innerHTML = `Portanto, o seu voto é **OBRIGATÓRIO**.`;
+        }
+      }
+    </script>
+  </body>
+</html>
