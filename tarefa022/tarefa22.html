@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarefa22 - Alistamento Militar</title>
+ <style>
+body{
+    background: rgb(59, 54, 54);
+    font-family: Arial, sans-serif;
+}
+section{
+    position: relative;
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: #f0f0f0; /* Fundo claro para a seção */
+}
+header{
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+#corpo{
+    position: relative;
+    margin: 150px auto; /* Centralizado verticalmente */
+    border: 1px solid #333;
+    width: 450px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    background: rgb(47, 85, 47); /* Fundo verde */
+}
+#res{
+    border: 1px solid #333;
+    margin-top: 15px;
+    padding: 10px;
+    color: white; 
+    background-color: #333; /* Fundo escuro para o resultado */
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px;
+    border-radius: 4px;
+}
+input[type="number"]{
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+#btn{
+    position: relative;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+#btn:hover {
+    background-color: #4cae4c;
+}
+
+</style>
+</head>
+<body>
+    <div id="corpo">
+        <header><h1>ALISTAMENTO MILITAR</h1></header>
+        <section>
+            <div>
+                <p>Insira o seu ano de nascimento: 
+                    <input type="number" id="ano" maxlength="4" placeholder="ex. 2000" required> 
+                    <input type="button" value="Submeter" onclick="submeter()" id="btn"></p>
+            </div>
+            <div id="res">Aguardando seu ano de nascimento...</div>
+        </section>
+    </div>
+    <script>
+        function submeter() {
+            var txtano = document.querySelector("input#ano");
+            var res = document.querySelector("div#res");
+            
+            var anoNascimento = Number(txtano.value);
+            var anoAtual = new Date().getFullYear();
+            var idade = anoAtual - anoNascimento;
+            
+            // --- 1. Validação Aprimorada ---
+            if (txtano.value.length === 0 || isNaN(anoNascimento) || anoNascimento < 1900 || anoNascimento > anoAtual) {
+                res.innerHTML = `⚠️ **[ERRO]** Por favor, insira um ano de nascimento válido (entre 1900 e ${anoAtual}).`;
+                res.style.backgroundColor = 'darkred';
+                return;
+            }
+
+            // --- 2. Lógica de Alistamento ---
+            const IDADE_ALISTAMENTO = 18;
+            var tempo = Math.abs(idade - IDADE_ALISTAMENTO); // Diferença de anos
+
+            res.style.backgroundColor = '#333'; // Cor padrão
+
+            if (idade < IDADE_ALISTAMENTO) {
+                // Usuário menor de 18
+                res.innerHTML = `📅 Você tem **${idade}** anos. Faltam **${tempo}** ano(s) para o seu Alistamento.`;
+                res.style.backgroundColor = '#2196F3'; // Azul para informação
+            } else if (idade === IDADE_ALISTAMENTO) {
+                // Usuário tem 18 anos exatos
+                res.innerHTML = `🎉 Você tem **${idade}** anos. **VOCÊ ESTÁ NO PRAZO DE ALISTAMENTO!**`;
+                res.style.backgroundColor = '#4CAF50'; // Verde para prazo
+            } else if (idade > IDADE_ALISTAMENTO && idade <= 45) {
+                // Usuário é maior de 18 e ainda dentro de uma idade razoável de serviço militar (ex: 45 anos)
+                res.innerHTML = `⚠️ Você tem **${idade}** anos. Já se passaram **${tempo}** ano(s) do prazo de Alistamento. Regularize sua situação!`;
+                res.style.backgroundColor = '#FF9800'; // Laranja para atraso
+            } else {
+                // Usuário muito mais velho
+                res.innerHTML = `🛑 Você tem **${idade}** anos. Já não pode alistar-se devido à idade.`;
+                res.style.backgroundColor = '#F44336'; // Vermelho para limite
+            }
+
+            // Limpa o campo e foca
+            txtano.value = "";
+            txtano.focus();
+        }
+    </script>
+</body>
+</html>
