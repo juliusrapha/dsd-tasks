@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Dias Perdidos por Fumar</title>
+    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="min-h-screen flex flex-col items-center justify-center p-4">
+    
+    <!-- HEADER -->
+    <header>
+      <h1>
+        CALCULADORA DE DIAS PERDIDOS POR FUMAR
+      </h1>
+    </header>
+
+    <!-- SEÇÃO PRINCIPAL (CARD) -->
+    <section>
+      <div class="container">
+        
+        <!-- Fieldset para o Inquérito -->
+        <fieldset>
+          <legend>
+            INQUÉRITO AO FUMADOR
+          </legend>
+          
+          <div class="form-group">
+            <!-- Input: Cigarros por Dia -->
+            <label for="cigar">
+              <span>Quantos cigarros fuma por dia?</span>
+              <input 
+                type="number" 
+                min="0"
+                step="1"
+                id="cigar"
+                placeholder="Ex: 20"
+              />
+            </label>
+
+            <!-- Input: Anos Fumando -->
+            <label for="anos">
+              <span>Há quantos anos tem fumado?</span>
+              <input 
+                type="number" 
+                min="0"
+                step="1"
+                id="anos"
+                placeholder="Ex: 10"
+              />
+            </label>
+            
+            <!-- Botão de Confirmação -->
+            <div class="button-container">
+              <button 
+                type="button" 
+                id="btn" 
+                onclick="confirmar()"
+              >
+                Confirma os dados
+              </button>
+            </div>
+            
+          </div>
+        </fieldset>
+        
+        <!-- Fieldset para o Resultado -->
+        <fieldset class="result-field">
+          <legend>
+            O total de dias perdidos
+          </legend>
+          <div id="res">
+            Os resultados aparecerão aqui após preencher os espaços e confirmar...
+          </div>
+        </fieldset>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      copy&copy; DUALStack DEVS
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>
